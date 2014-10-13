@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.5.30)  15 JUL 2014 16:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.5.30)  13 OCT 2014 10:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -293,46 +293,21 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 87.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-File: data/offcentered.eps Graphic file (type eps)
 
-<data/offcentered.eps>
-File: data/round_drift_offset.eps Graphic file (type eps)
- <data/round_drift_offset.eps>
-File: data/round_dipole_xoffset.eps Graphic file (type eps)
-
-<data/round_dipole_xoffset.eps>
-File: data/round_dipole_yoffset.eps Graphic file (type eps)
- <data/round_dipole_yoffset.eps>
-File: data/vs_dip_y.eps Graphic file (type eps)
-
-<data/vs_dip_y.eps>
-File: data/vs_dip_x.eps Graphic file (type eps)
- <data/vs_dip_x.eps>
-File: data/vs_dri_y.eps Graphic file (type eps)
- <data/vs_dri_y.eps>
-File: data/dipole_line_y.eps Graphic file (type eps)
-
-<data/dipole_line_y.eps>
-File: data/dipole_line_x.eps Graphic file (type eps)
- <data/dipole_line_x.eps>
-File: data/drift_line_y.eps Graphic file (type eps)
- <data/drift_line_y.eps>
-
-Package natbib Warning: Empty `thebibliography' environment on input line 215.
+Package natbib Warning: Empty `thebibliography' environment on input line 107.
 
 [1
 
 
-] [2] [3
 
 ] (./apstemplate.aux) ) 
 Here is how much of TeX's memory you used:
- 4323 strings out of 493305
- 67842 string characters out of 6139897
- 161007 words of memory out of 5000000
- 7733 multiletter control sequences out of 15000+600000
- 10436 words of font info for 40 fonts, out of 8000000 for 9000
+ 4278 strings out of 493305
+ 67123 string characters out of 6139897
+ 152007 words of memory out of 5000000
+ 7699 multiletter control sequences out of 15000+600000
+ 10782 words of font info for 41 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 32i,10n,30p,486b,271s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,6n,30p,596b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on apstemplate.dvi (3 pages, 10152 bytes).
+Output written on apstemplate.dvi (1 page, 2112 bytes).
