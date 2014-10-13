@@ -75,7 +75,7 @@ Schlo{\ss}gartenstr. 8 64289 Darmstadt}
 %\noaffiliation
 \date{\today}
 \begin{abstract}
-Typically the electron cloud effects are simulated in two stages: electron-cloud build-up simulations and electron-cloud induced instability simulation. In the latter stage the clouds are usually refreshed after each beam-cloud interaction. In this note we study memory effects of the cloud within the 2D electrostatic particle-in-cell code.
+Electron cloud is one of the most s
 \end{abstract}
 
 % insert suggested PACS numbers in braces on next line
@@ -88,121 +88,7 @@ Typically the electron cloud effects are simulated in two stages: electron-cloud
 
 \section{Simulations}
 
-The idea of the study is very simple(Fig.~\ref{offcentered}).
-We begin with a typical electron cloud build-up simulation and wait until the saturation.
-Several bunches before the train end we introduce an offset to the bunch.
-This bunch sees the strongest transverse electric field.
-Moreover, the electron cloud distribution changes slightly.
-Latter bunches interact with this distorted cloud.
 
-
-\begin{figure}[htb]
-\centering
-\includegraphics*[width=80mm]{data/offcentered.eps}
-\caption{(Color) The arrangement of the bunches in the simulation.}
-\label{offcentered}
-\end{figure}
-
-Figs.~\ref{wake_drift},~\ref{wake_dipole_x}, and ~\ref{wake_dipole_y} show the transverse electric field averaged over the centered bunch profile.
-One can clearly see that the first bunch induces no transverse field.
-The next off-centered bunch sees the strongest transverse electric field.
-Centered bunches that follow the distorted bunch continue inducing the transverse electric field.
-
-
-\begin{figure}[htb]
-\centering
-\includegraphics*[width=80mm]{data/round_drift_offset.eps}
-\caption{(Color) Transverse electric field seen by the bunches in the train passing through the round field free section. At 75 m starts the offceneted bunch. Its offset is listed in the figure. Upper graph shows the field seen on the pipe axis near the offcentered bunch. Lower graph shows the transverse field seen by one bunch before and two bunches after the distorted bunch.}
-\label{wake_drift}
-\end{figure}
-
-
-\begin{figure}[htb]
-\centering
-\includegraphics*[width=80mm]{data/round_dipole_xoffset.eps}
-\caption{(Color) Horizontal electric field seen by the bunches in the train passing through the round field free section. At 75 m starts the offceneted bunch. Its offset is listed in the figure. Upper graph shows the field seen on the pipe axis near the offcentered bunch. Lower graph shows the transverse field seen by one bunch before and two bunches after the distorted bunch.}
-\label{wake_dipole_x}
-\end{figure}
-
-
-\begin{figure}[htb]
-\centering
-\includegraphics*[width=80mm]{data/round_dipole_yoffset.eps}
-\caption{(Color) Vertical electric field seen by the bunches in the train passing through the round field free section. At 75 m starts the offceneted bunch. Its offset is listed in the figure. Upper graph shows the field seen on the pipe axis near the offcentered bunch. Lower graph shows the transverse field seen by one bunch before and two bunches after the distorted bunch.}
-\label{wake_dipole_y}
-\end{figure}
-
-However, the actual field seen by the offcentered bunch is significantly different from the field on the pipe axis (Figs.~\ref{vs_dip_y},~\ref{vs_dip_x} and~\ref{vs_dri_y}).
-\begin{figure}[htb]
-\centering
-\includegraphics*[width=80mm]{data/vs_dip_y.eps}
-\caption{(Color) Comparison of the field on the pipe axis (upper) and on the bunch axis (lower) in dipole with vertically offcentered bunch.}
-\label{vs_dip_y}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics*[width=80mm]{data/vs_dip_x.eps}
-\caption{(Color) Comparison of the field on the pipe axis (upper) and on the bunch axis (lower) in dipole with horizontally offcentered bunch.}
-\label{vs_dip_x}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics*[width=80mm]{data/vs_dri_y.eps}
-\caption{(Color) Comparison of the field on the pipe axis (upper) and on the bunch axis (lower) in drift with vertically offcentered bunch.}
-\label{vs_dri_y}
-\end{figure}
-
-\begin{center}
-\begin{table}
-    \caption{Simulation parameters for LHC-type bunches.}
-    \begin{tabular}{ | l | c |}
-    \hline
-    Bunch length, $\sigma_{z}$ / m & 0.1 \\ \hline
-    Bunch radius, $\sigma_{r}$ / m & $10^{-3}$ \\ \hline
-    Bunch intensity & $1 \cdot 10^{11}$  \\ \hline
-    Bunch spacing / ns & 25  \\ \hline
-    Pipe radius, $R_{p}$ / m & $2\cdot10^{-2}$ \\ \hline
-    Magnetic field, B / T & 0.1  \\ \hline
-    Maximum SEY, $\delta_{max}$ & 1.4 \\ \hline
-    Energy of $\delta_{max}$, $W_{sey,max}$ / eV & 250  \\ \hline
-    Rediffusion probability & 0.7  \\
-    \hline
-    \end{tabular}
-\label{table_1}
-\end{table}
-\end{center}
-
-These simulations indicate clearly the memory effect of the electron cloud at 25 ns bunch spacing.
-
-\section{Electron cloud memory as a function of SEY}
-
-In this section we analyze how the features of the electron cloud field depend on the secondary emission curve.
-We have chosen two ways to perform this study. One way is to have a fixed SEY curve an preform a scan over bunch intensities. Second way is to have a fixed intensity but varying position of the SEY maximum.
-
-\section{Appendix: Line density}
-This section shows the evolution of the line density after the distorted bunch.
-\begin{figure}[htb]
-\centering
-\includegraphics*[width=80mm]{data/dipole_line_y.eps}
-\caption{(Color) Line density at saturation for the vertically offcentered bunch in the dipole section.}
-\label{line_dip_y}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics*[width=80mm]{data/dipole_line_x.eps}
-\caption{(Color) Line density at saturation for the horizontally offcentered bunch in the dipole section.}
-\label{line_dip_x}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics*[width=80mm]{data/drift_line_y.eps}
-\caption{(Color) Line density at saturation for the vertically offcentered bunch in the dridt section.}
-\label{line_dri_y}
-\end{figure}
 \begin{thebibliography}{16}%
 
 
