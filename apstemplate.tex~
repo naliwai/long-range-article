@@ -22,7 +22,7 @@
 %  Add 'showpacs' option to make PACS codes appear
 %  Add 'showkeys' option to make keywords appear
 %%\documentclass[aps,prl,preprint,groupedaddress]{revtex4-1}
-\documentclass[5p]{elsarticle}%[prstab,11pt,showpacs]{revtex4-1}
+\documentclass[1p]{elsarticle}%[prstab,11pt,showpacs]{revtex4-1}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{amssymb}
@@ -89,25 +89,172 @@ Electron cloud is a concern for many modern and future accelerator facilities. T
 \section{Introduction}
 
 \section{Long Range Wakefields due to Secondary Emission}
-
-	We start our analyzis assuming a perfectly circular beam pipe of radius $R_{p}$.
-	Moreover, we assume that bunches propagating through this pipe are short longitudinally and much smaller than $R_{p}$ transversly.
 	
+	We start our analysis assuming a perfectly circular beam pipe of radius $R_{p}$.
+	Moreover, we assume that bunches propagating through this pipe are short longitudinally and much smaller than $R_{p}$ transversely.
+	All bunches have one and the same radius $\sigma_{r}$.
+	Additionally, the electron cloud populating this pipe is radially symmetric as well.
+	If all the bunches propagate exactly on the pipe axis, the electron distribution remains radially symmetric.
+	%BUNCH SIZE VARIABLES ARE NOT INTRODUCED
+	%KICK APPROXIMATION IS NOT MENTIONED
+
+	In the following we assume that one of the bunches is horizontally off-centered by $x_{0}$.
+	The electrostatic potential of the bunch is then approximately given by the Green's function~\cite{kapin}:
+\begin{equation}\label{green_function}
+G(x,y,x_{0},y_{0})=\frac{1}{4 \pi \epsilon_{0}} \ln \left ( \frac{\bar{R}^{2} r_{0}^{2}}{R^{2} a_{0}^{2}} \right ),
+\end{equation}
+where $\bar{R}=\sqrt{(r_{0}^{2}x-R_{p}^{2}x_{0})^{2}+(r_{0}^{2}y-R_{p}^{2}y_{0})^{2}}/r_{0}^{2}$,
+ 
+$r_{0}=\sqrt{x_{0}^{2}+y_{0}^{2}}$ and $R=\sqrt{(x-x_{0})^{2}+(y-y_{0})^{2}}$.
+
+	If $0<x_{0}<<R_{p}$ and $y_{0}=0$, one can expand Eq.~\ref{green_function} to get:
+\begin{equation}\label{green_function_expansion}
+G(x,y,x_{0},y_{0}) \approx \frac{1}{4 \pi \epsilon_{0}} 
+\left (
+\ln \left [ \frac{R^{2}_{p}}{x^{2}+y^2} \right ]
++
+\frac{2 x x_{0}}{x^{2}+y^{2}}
+\right )
+\end{equation}
+	We then analyze the electric fields at radius $R>>x_{0}$ from pipe center. 
+	To obtain them one needs to multiply Eq.~\ref{green_function_expansion} by local bunch line density $\lambda_{i}(z)$ and get the derivative in $x$ and $y$ directions:
+\begin{equation}\label{green_function_expansion}
+E_{x}(x,y) \approx \frac{e \lambda_{i}}{2 \pi \epsilon_{0}}
+\left (
+\frac{x}{R^{2}}+\frac{x_{0} (x^{2}-y^{2})}{R^{4}}
+\right ) 
+\end{equation}
+and
+\begin{equation}\label{green_function_expansion}
+E_{y}(x,y) \approx \frac{e \lambda_{i}}{2 \pi \epsilon_{0}}
+\left (
+\frac{y}{R^{2}}+\frac{2 x_{0} x y}{R^{4}}
+\right ).
+\end{equation}
+The kick approximation Ref.[kick] gives the following velocity change in $x$ and $y$ directions:
+\begin{equation}\label{green_function_expansion}
+\Delta V_{x}(x,y) \approx 2 N_{i} r_{e} c
+\left (
+\frac{x}{R^{2}}+\frac{x_{0} (x^{2}-y^{2})}{R^{4}}
+\right ) 
+\end{equation}
+and
+\begin{equation}\label{green_function_expansion}
+\Delta V_{y}(x,y) \approx 2 N_{i} r_{e} c
+\left (
+\frac{y}{R^{2}}+\frac{2 x_{0} x y}{R^{4}}
+\right ).
+\end{equation}
+As expected, one sees that the horizontal kicks are larger on the side closer to the bunch and smaller on the opposite side.
+Moreover, $\Delta V_{y}(x,y)>\Delta V_{y}(-x,y)$ if $x>0$.
+
+Depending on the beam intensity most of the electrons can get energy either below the position of the SEY maximum or above.
+Additional features of secondary emission arise when
+Fig.~\ref{fig:set_difference} shows schematically the process of secondary emission in case of an off-centered bunch.
+ 
+
+\begin{figure}[htb] 
+\centering
+\includegraphics*[width=75mm]{./data/two_sey_kicks.eps}
+\caption{(Color) Schematic representation of the secondary emission process for off-centered bunch for two different bunch populations.}
+\label{fig:set_difference}
+\end{figure}
+
 
 \section{Simulations}
+
 	The numerical model is the same as in Ref.[Petrov2014].
+	The simulation parameters are listed in Table.[table]
 	In this section we focus on the dipole region mainly. 
 	In reality primary electrons are bound to the magnetic field lines.
 	Moreover, secondary electrons move along approximately the same field lines as the primary ones.
 	Thus the electrons stay approximately in one and the same plane and the approximation of 2D grid and 2D electron motion is rather valid.
 	In contrast in field-free regions physical electrons can move freely in all the directions.
-	Hence, in the gap between two consecutive bunches
+	Hence, in the gap between two consecutive bunches electrons can diffuse significantly.
+
+\subsection{Single-bunch wakefields}\label{sbw}
+
+In this subsection we analyze the features of the electron cloud wakefields in cyllindrical geometry including secondary emission.
+To begin with, we assume a uniform cloud populating the beam pipe.
+We start with the simulation of the single-bunch wakefields.
+Figs.~\ref{fig:offset_drift} and ~\ref{fig:offset_dipole} show the fields induced in the cylindrically symmetric pipe.
+The fields on the pipe axis and the fields on the offcentered bunch axis are shown.
+The depicted wakefields were calculated for different offsets of the bunch.
+In addition Figs.~\ref{fig:offset_drift_average} and ~\ref{fig:offset_dipole_average} show the same fields but averaged over the bunch longitudinal profile.
+One sees that the field acting on the bunch depends linearly on the offset.
+Moreover, the field on the pipe axis does not vanish until the following bunch and depends rather linearly on the bunch offset.
+
+\begin{figure}[htb] 
+\centering
+\includegraphics*[width=75mm]{./data/round_drift_offset.eps}
+\caption{(Color) Transverse electric field induced by the pinching electron cloud on the pipe axis (upper) and on the bunch axis (lower) in the field-free pipe. }
+\label{fig:offset_drift}
+\end{figure}
+
+\begin{figure}[htb] 
+\centering
+\includegraphics*[width=75mm]{./data/round_dipole_offset.eps}
+\caption{(Color)Transverse electric field induced by the pinching electron cloud on the pipe axis (upper) and on the bunch axis (lower) in the dipole magnetic field. }
+\label{fig:offset_dipole}
+\end{figure}
+
+\begin{figure}[htb] 
+\centering
+\includegraphics*[width=75mm]{./data/round_drift_offset_average.eps}
+\caption{(Color) Electron cloud transverse electric field averaged over the bunch profile in the field-free pipe. }
+\label{fig:offset_drift_average}
+\end{figure}
+
+\begin{figure}[htb] 
+\centering
+\includegraphics*[width=75mm]{./data/round_dipole_offset_average.eps}
+\caption{(Color) Electron cloud transverse electric field averaged over the bunch profile in the dipole magnetic field. }
+\label{fig:offset_dipole_average}
+\end{figure}
+
+\subsection{Basic characteristics of long-range wakefields}
+
+Figs. ~\ref{fig:offset_drift_long} and ~\ref{fig:offset_dipole_long} show the same fields as in Subsection~\ref{sbw} on axis covering however four following bunches.
+One can see that the fields become negligible (below the noise level) in the field-free pipe, but stay observable in the dipole region.
+The growing amplitude of the field is due to the growing electron cloud density.
+The vertical offset in the dipole region (not shown) leads to the similar fast decaying wakefield as in the field-free region.
+
+
+%The transverse electric field seen by the off-centered bunch is shown in Fig.[direct-field].
+%One can see that the field strength on axis decreses significantly after the offcentered bunch.
+%However, a magnified Fig.[wake-tail] shows that the following centered bunches experience transverse field kicks.
+%This field asymmetry arises due to the asymmetric secondary emission.
+%To prove this Fig.[field-comparison] depicts the field seen by the off-centered bunch and the field seen by the following bunches for different positions of the $E_{max}$.
+%One can cearly see that the field seen by the off-centered bunch stays the same, but the field seen by the following bunches changes with $E_{max}$.
+%In round geometry and in the presense of external dipole field one can see that the fields behind the bunch change their polarity.
+
+\begin{figure}[htb] 
+\centering
+\includegraphics*[width=75mm]{./data/round_drift_offset_long.eps}
+\caption{(Color) Transverse electron cloud electric fields induced by the offcentered bunchin the range of several bunch spacings in the field-free pipe.}
+\label{fig:offset_drift_long}
+\end{figure}
+
+\begin{figure}[htb] 
+\centering
+\includegraphics*[width=75mm]{./data/round_dipole_offset_long.eps}
+\caption{(Color) Transverse electron cloud electric fields induced by the offcentered bunchin the range of several bunch spacings in the external dipole magnetic field.}
+\label{fig:offset_dipole_long}
+\end{figure}
+
+
 
 \subsection{Simulations for Round Geometry}
 
+	
+
 \subsection{Simulations for Rectangular Geometry}
 
+
+
 \subsection{Simulations for Realistic LHC Geometry}
+
+
 
 \subsection{Conclusion and Outlook}
 
